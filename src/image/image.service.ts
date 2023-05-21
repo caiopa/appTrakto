@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { Image, ImageDocument } from './schemas/image.schema';
 import { Model } from 'mongoose';
 import axios from 'axios';
 import * as sharp from 'sharp';
@@ -7,12 +8,12 @@ import * as fs from 'fs';
 import { promisify } from 'util';
 import { copiarImagemReduzida } from '../utils/copyImgAndResize';
 import { validCompress } from '../utils/validCompress';
-import { Image, ImageDocument } from './schemas/image.schema';
 
 const writeFileAsync = promisify(fs.writeFile);
 
 @Injectable()
 export class ImageService {
+  [x: string]: any;
   constructor(
     @InjectModel(Image.name) private imageModel: Model<ImageDocument>,
   ) {}
