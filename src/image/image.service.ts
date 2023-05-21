@@ -1,11 +1,15 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Image, ImageDocument } from './schemas/image.schema';
 import { Model } from 'mongoose';
 import axios from 'axios';
 import * as sharp from 'sharp';
 import * as fs from 'fs';
+import { promisify } from 'util';
 import { copiarImagemReduzida } from '../utils/copyImgAndResize';
+import { validCompress } from '../utils/validCompress';
+import { Image, ImageDocument } from './schemas/image.schema';
+
+const writeFileAsync = promisify(fs.writeFile);
 
 @Injectable()
 export class ImageService {
@@ -16,34 +20,21 @@ export class ImageService {
   async saveImageWithThumbnail(image: string, compress: number) {
     const timestamps = new Date().getTime();
     const newLocalImg = `./src/assets/original_${timestamps}.jpg`;
-    if (compress <= 0) {
-      throw new HttpException(
-        {
-          errors: [
-            {
-              code: 400,
-              message: 'Compress não pode ser menor que 0.1',
-            },
-          ],
-        },
-        HttpStatus.BAD_REQUEST,
-      );
-    }
-
+    validCompress(compress);
     try {
       const response = await axios.get(image, { responseType: 'arraybuffer' });
       const buffer = Buffer.from(response.data, 'binary');
 
-      let resizedWidth;
-      let resizedHeight;
-
       const imageMetadata = await sharp(buffer).metadata();
 
-      if (imageMetadata.width && imageMetadata.width > 720) {
+      let resizedWidth = imageMetadata.width;
+      let resizedHeight = imageMetadata.height;
+
+      if (resizedWidth > 720) {
         resizedWidth = 720;
       }
 
-      if (imageMetadata.height && imageMetadata.height > 720) {
+      if (resizedHeight > 720) {
         resizedHeight = 720;
       }
 
@@ -51,7 +42,7 @@ export class ImageService {
         .resize(resizedWidth, resizedHeight)
         .toBuffer();
 
-      fs.writeFileSync(newLocalImg, resizedBuffer);
+      await writeFileAsync(newLocalImg, resizedBuffer);
 
       const resultadoResizeImg = await copiarImagemReduzida({
         image,
@@ -73,7 +64,7 @@ export class ImageService {
           errors: [
             {
               code: 404,
-              message: 'URL invalida ou inexistente',
+              message: 'URL inválida ou inexistente',
             },
           ],
         },
