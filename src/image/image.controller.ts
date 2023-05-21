@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Next } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { ImageService } from './image.service';
 import { CreateImageDto } from './dto/create-image.dto';
 
@@ -12,7 +12,6 @@ export class ImageController {
       return this.imageService.saveImageWithThumbnail(image, compress);
     } catch (error) {
       console.error(error);
-      Next();
     }
   }
 }
