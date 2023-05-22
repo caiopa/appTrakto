@@ -27,14 +27,11 @@ BODY:
 ``` 
 OBS: A imagem salva e reduzida estão sendo salva na pasta `.src/assests` exemplo: `./src/assests/original_{...}.jpg` e a reduzida `./src/assests/_thumb_{...}.jpg`
 
-
 <details>
 <summary> Funcionalidades </summary><br/>
- 
  1. Conseguir salvar uma imagem recebida por uma URL publica no formato jpg e gerar um versão reduzida (acrescentando o sufixo _thumb ao nome do arquivo)
 
  2. A imagem reduzida deve ser compactada e o fator deve ser enviado como parâmentro junto com a url da imagem original.
-
 </details><br />
 
 ### Test
