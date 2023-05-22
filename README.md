@@ -36,4 +36,4 @@ OBS: A imagem salva e reduzida estão sendo salva na pasta `.src/assests` exempl
 
 ### Test
 
-1. Para rodar o teste de `npm run test:cov `
+1. Para rodar os testes `npm run test:cov `
