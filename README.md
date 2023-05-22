@@ -1,22 +1,20 @@
 ## Seja bem vindo ao App Trakto
 
-O projeto foi desenvolvido em Nest com Nodejs, Typescript, Mongodb e Mongoose
+O projeto foi desenvolvido em Nest, Nodejs, Typescript, Mongodb
 
 ### Orientações para testar
 
 !importante (Ter o DOCKER e NODE instalados)
 
  1. Clone o repositório ``
- 2. Rode o docker compose na raiz do projeto OU rode o docker run com a imagem do mongo `docker run --name mongodb -d -p 27017:27017  mongo:latest`
- 3. Caso prefira rodar com o compose na raiz do projeto de um `docker compose up --build` para subir a imagem do MongoDB
- 4. Configure as variáveis de ambiente se necessário:  MONGODB_DATABASE: `trakto` e conect-se pelo workbench ou vscode
+ 2. Rode o docker compose na raiz do projeto com o comando `docker compose up --build`
+  OU rode o docker run com a imagem do mongo `docker run --name mongodb -d -p 27017:27017 mongo:latest`
+ 3. Configure as variáveis de ambiente se necessário:  MONGODB_DATABASE: `trakto` e conect-se no banco de dados. MONGODB_PORT `27017`
 
+ 4. Na raiz pasta raiz do projeto de um `npm install`
+ 5. Apos rode o `npm run start:dev`
 
- 1. Na raiz pasta raiz do projeto de um `npm install`
- 2. Apos rode o `npm run start:dev`
-
-### Modelo de requisição
-
+### Modelo de requisição para testar
 
 URL: `${BASE_URL}/image/save`
 METHOD: `POST`
@@ -41,4 +39,4 @@ OBS: A imagem salva e reduzida estão sendo salva na pasta `.src/assests` exempl
 
 ### Test
 
-1. Para testar rode `npm run test:cov `
+1. Para rodar o teste de `npm run test:cov `
