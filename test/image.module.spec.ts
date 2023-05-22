@@ -1,10 +1,10 @@
 import { Test } from '@nestjs/testing';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ImageController } from '../image/image.controller';
-import { ImageModule } from '../image/image.module';
-import { ImageService } from '../image/image.service';
-import { ImageSchema } from '../image/schemas/image.schema';
-import { Image } from '../image/schemas/image.schema';
+import { ImageController } from '../src/image/image.controller';
+import { ImageModule } from '../src/image/image.module';
+import { ImageService } from '../src/image/image.service';
+import { ImageSchema } from '../src/image/schemas/image.schema';
+import { Image } from '../src/image/schemas/image.schema';
 
 describe('ImageModule', () => {
   let imageModule;

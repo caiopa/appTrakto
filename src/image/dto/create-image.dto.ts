@@ -4,7 +4,7 @@ export class CreateImageDto {
 }
 
 export class CreateThubImageDto {
-  readonly image: string;
+  readonly image?: string;
   readonly compress: number;
   readonly timestamps: number;
   readonly caminhoUrl: string;

@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as sharp from 'sharp';
-import { copiarImagemReduzida } from '../utils/copyImgAndResize';
+import { copiarImagemReduzida } from '../src/utils/copyImgAndResize';
 
 // Mock das funções e métodos utilizados
 jest.mock('fs');

@@ -1,12 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import * as sharp from 'sharp';
 import { getModelToken } from '@nestjs/mongoose';
-import { AppModule } from '../app.module';
-import { CreateImageDto } from '../image/dto/create-image.dto';
-import { ImageController } from '../image/image.controller';
-import { ImageModule } from '../image/image.module';
-import { ImageService } from '../image/image.service';
-import { Image } from '../image/schemas/image.schema';
+import { AppModule } from '../src/app.module';
+import { CreateImageDto } from '../src/image/dto/create-image.dto';
+import { ImageController } from '../src/image/image.controller';
+import { ImageModule } from '../src/image/image.module';
+import { ImageService } from '../src/image/image.service';
 
 describe('ImageController', () => {
   let controller: ImageController;

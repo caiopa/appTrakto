@@ -1,11 +1,11 @@
 import * as sharp from 'sharp';
-import { ImageService } from '../image/image.service';
-import { Image } from '../image/schemas/image.schema';
+import { ImageService } from '../src/image/image.service';
+import { Image } from '../src/image/schemas/image.schema';
 import { getModelToken } from '@nestjs/mongoose';
 import { TestingModule, Test } from '@nestjs/testing';
-import { AppModule } from '../app.module';
-import { ImageController } from '../image/image.controller';
-import { ImageModule } from '../image/image.module';
+import { AppModule } from '../src/app.module';
+import { ImageController } from '../src/image/image.controller';
+import { ImageModule } from '../src/image/image.module';
 import axios from 'axios';
 import * as fs from 'fs';
 import { promisify } from 'util';
