@@ -4,6 +4,6 @@ services:
   mongodb:
     image: mongo:latest
     environment:
-      - MONGODB_DATABASE="traktodb"
+      - MONGODB_DATABASE="trakto"
     ports:
       - 27017:27017
