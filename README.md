@@ -6,7 +6,7 @@ O projeto foi desenvolvido em Nest, Nodejs, Typescript, Mongodb
 
 !importante (Ter o DOCKER e NODE instalados)
 
- 1. Clone o repositório ``
+ 1. Clone o repositório `git clone git@github.com:caiopa/appTrakto.git`
  2. Rode o docker compose na raiz do projeto com o comando `docker compose up --build`
   OU rode o docker run com a imagem do mongo `docker run --name mongodb -d -p 27017:27017 mongo:latest`
  3. Configure as variáveis de ambiente se necessário:  MONGODB_DATABASE: `trakto` e conect-se no banco de dados. MONGODB_PORT `27017`
